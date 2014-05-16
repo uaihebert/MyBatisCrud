@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.uai.CrudQuery">
+    <resultMap id="CustomerResultMap" type="uai.model.Customer">
+        <result column="social_security_number" property="socialSecurityNumber" />
+    </resultMap>
+    
+    <select id="Customer_ListALL" resultMap="CustomerResultMap">
+      select * from customer
+    </select>
+
+    <select id="Customer_FindById" resultMap="CustomerResultMap">
+      select * from customer where id = #{id}
+    </select>
+
+    <insert id="Customer_Insert" useGeneratedKeys="true" keyProperty="id" >
+        INSERT INTO customer (name,birth,gender,social_security_number) VALUES(#{name},#{birth},#{gender},#{socialSecurityNumber})
+    </insert>
+
+    <update id="Customer_Update" >
+        UPDATE customer SET name = #{name}, birth = #{birth},gender = #{gender}, social_security_number = #{socialSecurityNumber} where id = #{id}
+    </update>
+
+    <delete id="Customer_Delete">
+        DELETE from customer where id = #{id}
+    </delete>
+</mapper>
