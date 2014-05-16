@@ -1,0 +1,9 @@
+CREATE SCHEMA `CRUD` DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_bin;
+
+CREATE TABLE `CRUD`.`customer` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `name` VARCHAR(100) NULL ,
+  `birth` DATETIME NULL ,
+  `gender` VARCHAR(10) NULL ,
+  `social_security_number` VARCHAR(9) NULL ,
+  PRIMARY KEY (`id`) );
